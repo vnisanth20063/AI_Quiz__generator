@@ -33,10 +33,9 @@ if mode == "Create Quiz":
                 if r.ok:
                     public_id = r.json()["public_id"]
                     st.success("Quiz created successfully.")
-                    st.code(f"{st.context.headers.get('Host', 'YOUR-FRONTEND')}/?quiz={public_id}")
+                    st.code(f"https://quiz-frontend-5j5z.onrender.com/?quiz={public_id}")
                     st.info(f"Quiz ID: {public_id}")
                     st.write("For deployment, share your deployed frontend URL with ?quiz=" + public_id)
-                else:
                     st.error(r.text)
             except requests.RequestException as e:
                 st.error(f"Backend connection failed: {e}")
